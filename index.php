@@ -1,7 +1,8 @@
 <?php
 //weather bot
-$e_message = "! Xatolik \n";
 require_once  "Telegram.php";
+$e_message = "! Xatolik \n";
+
 try {
 $telegram = new Telegram("5915718443:AAGsEKZF4DJ-5GONc0yvIEq4fUtLR4okYnw");
 $chat_id = $telegram->ChatID();
@@ -37,7 +38,7 @@ function start()
         ["Shahar nomini yuboring"],
         ["Yordam"],
     ];
-    $keyb = $telegram->buildKeyBoard($option);
+    $keyb = $telegram->buildKeyBoard($option, $onetime = true, $resize = true);
     $reply = "Botimizga Xush kelibsiz🌤️";
     $telegram->sendMessage([
         'chat_id' => $chat_id,
