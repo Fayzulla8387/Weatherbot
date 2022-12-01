@@ -9,11 +9,10 @@ $start = "Assalomu alaykum men ob-havo botiman. Men sizga dunyoning istalgan sha
 $help = "/help";
 
 switch ($text) {
-    case $start:
-        $reply = " Ob havo botiga Xush  kelibsiz 🌤️";
+    case "/start":
         start();
         break;
-    case $help:
+    case "help":
         $reply = "Bu bot sizga dunyoning istalgan shahrining ob-havosini aytib berishi mumkin";
         $telegram->sendMessage(['chat_id' => $chat_id, 'text' => $reply]);
         break;
@@ -27,12 +26,13 @@ function start()
     global $telegram;
     global $chat_id;
     $option = [
-        ["Shahar nomini tanlang"]
+        ["Shahar nomini yuboring"],
+        ["Yordam"],
         ["Yordam"],
 
     ];
     $keyb = $telegram->buildKeyBoard($option);
-    $reply = "Welcome to Weather Bot";
+    $reply = "Botimizga Xush kelibsiz🌤️";
     $telegram->sendMessage([
         'chat_id' => $chat_id,
         'text' => $reply,
