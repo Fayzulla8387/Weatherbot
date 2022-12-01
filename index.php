@@ -1,6 +1,8 @@
 <?php
 //weather bot
+$e_message = "! Xatolik \n";
 
+try {
 $telegram = new Telegram("5915718443:AAGsEKZF4DJ-5GONc0yvIEq4fUtLR4okYnw");
 $chat_id = $telegram->ChatID();
 $text = $telegram->Text();
@@ -25,6 +27,14 @@ switch ($text) {
         $telegram->sendMessage(['chat_id' => $chat_id, 'text' => $reply]);
         break;
 }
+}  catch (Throwable $e) {
+    $e_message .= $e->getMessage()."\n Qator-";
+    $e_message .= $e->getLine()."\n File-";
+    $e_message .= $e->getFile();
+    sendMessage($e_message);
+
+}
+
 function start()
 {
     global $telegram;
@@ -32,8 +42,6 @@ function start()
     $option = [
         ["Shahar nomini yuboring"],
         ["Yordam"],
-        ["Yordam"],
-
     ];
     $keyb = $telegram->buildKeyBoard($option);
     $reply = "Botimizga Xush kelibsiz🌤️";
@@ -42,4 +50,14 @@ function start()
         'text' => $reply,
         'reply_markup' => $keyb
     ]);
+}
+
+function sendMessage($text)
+{
+    global $chat_id, $telegram;
+    $content = [
+        'chat_id' => $chat_id,
+        'text' => $text
+    ];
+    $telegram->sendMessage($content);
 }
