@@ -7,6 +7,10 @@ $text = $telegram->Text();
 $start = "Assalomu alaykum men ob-havo botiman. Men sizga dunyoning istalgan shahrining ob-havosini ayta olaman. Faqat shahar nomini yozing, men sizga ob-havoni aytib beraman. Masalan, 'London' deb yozing va men sizga Londonning ob-havosini aytib beraman.
  Buyruqlar ro'yxatini ko'rish uchun 'Yordam' ni bosing.";
 $help = "/help";
+$telegram->sendMessage([
+    'chat_id' => $chat_id,
+    'text' => $text,
+]);
 
 switch ($text) {
     case "/start":
