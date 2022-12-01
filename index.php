@@ -10,7 +10,7 @@ $help = "/help";
 
 switch ($text) {
     case $start:
-        $reply = "Ob havo botiga Xush  kelibsiz 🌤️";
+        $reply = " Ob havo botiga Xush  kelibsiz 🌤️";
         start();
         break;
     case $help:
